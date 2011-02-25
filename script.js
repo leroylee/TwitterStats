@@ -20,7 +20,7 @@ Hash.prototype.hasKey = function () {
 }
 
 $(function () {
-    var q = "%23mugmc11";
+    var q = "#mugmc11";
     var start_time = ""; //not used yet
     var end_time = ""; //not used yet
     var sstr = "";
@@ -54,7 +54,7 @@ $(function () {
     function getData() {
         if (pnum >= 5) { return null; }
         $.getJSON(
-            "http://search.twitter.com/search.json?callback=?&rpp=100&result_type=recent&q=" + q + "&page=" + pnum,
+            "http://search.twitter.com/search.json?callback=?&rpp=100&result_type=recent&q=" + encodeURIComponent(q) + "&page=" + pnum,
             function (data) {
                 var done = false;
                 results = data.results;
